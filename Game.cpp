@@ -20,6 +20,10 @@ Game::~Game()
 {
 }
 
+bool Game::initSerialConnection()
+{
+	return true;
+}
 /*
 * init - used to initialise and setup SDL
 * Return true if everything is successful

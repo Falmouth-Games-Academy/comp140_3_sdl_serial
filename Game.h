@@ -1,5 +1,6 @@
 #pragma once
 #include "SDL.h"
+#include <serial\serial.h>
 
 
 class Game
@@ -14,6 +15,7 @@ public:
 	void handleEvents();
 	void clean();
 
+	bool initSerialConnection();
 	bool running() { return isRunning; };
 
 private:
