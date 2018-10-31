@@ -21,5 +21,7 @@ private:
 	SDL_Renderer* mainRenderer;
 
 	bool isRunning;
+
+	SDL_Rect playerPosition;
 };
 

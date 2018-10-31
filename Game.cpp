@@ -64,18 +64,24 @@ bool Game::init(const char * title, int xpos, int ypos, int width, int height, i
 	isRunning = true;
 	cout << "SDL init success \n";
 
+	playerPosition.x = 100;
+	playerPosition.y = 100;
+	playerPosition.w = 25;
+	playerPosition.h = 25;
 	return true;
 }
 
 void Game::render()
 {
 	// set background color
-	SDL_SetRenderDrawColor(mainRenderer, 255, 255, 255, 255);
+	SDL_SetRenderDrawColor(mainRenderer, 0, 0, 0, 255);
 	
 	// clear previous frame
 	SDL_RenderClear(mainRenderer);
 
 	// draw to the screen here!
+	SDL_SetRenderDrawColor(mainRenderer, 255, 255, 255, 255);
+	SDL_RenderFillRect(mainRenderer,&playerPosition);
 	
 	// render new frame
 	SDL_RenderPresent(mainRenderer);
@@ -104,6 +110,16 @@ void Game::handleEvents()
 			isRunning = false;
 			break;
 		case SDL_MOUSEBUTTONDOWN:
+			break;
+		case SDL_KEYDOWN:
+			if (event.key.keysym.sym == SDLK_w)
+			{
+				playerPosition.y -= 5.0f;
+			}
+			else if (event.key.keysym.sym == SDLK_s)
+			{
+				playerPosition.y += 5.0f;
+			}
 			break;
 		default:
 			break;
