@@ -3,7 +3,6 @@
 #include <serial\serial.h>
 #include "SerialInterface.h"
 
-
 class Game
 {
 public:
@@ -22,7 +21,6 @@ public:
 private:
 	SDL_Window* mainWindow;
 	SDL_Renderer* mainRenderer;
-
 	bool isRunning;
 
 	SerialInterface* serial;
