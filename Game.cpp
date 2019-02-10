@@ -22,8 +22,6 @@ Game::~Game()
 
 bool Game::initSerialConnection()
 {
-	serial = new SerialInterface();
-
 	return true;
 }
 /*
@@ -101,11 +99,7 @@ void Game::render()
 */
 void Game::update()
 {
-	if (serial->connect == true) {
-
-		serial->getPositions();
-		playerPosition.y = serial->getPot1();
-	}
+	
 }
 
 /*
