@@ -69,7 +69,7 @@ void SerialInterface::getPositions()
 
 		std::string result = mySerial->readline();
 
-		if (result.length > 5) {
+		if (result.length() > 5) {
 			std::string sub1 = result.substr(0, 4);
 			pot1 = std::stoi(sub1);
 
