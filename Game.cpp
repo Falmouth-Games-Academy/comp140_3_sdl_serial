@@ -22,6 +22,8 @@ Game::~Game()
 
 bool Game::initSerialConnection()
 {
+	serial = new SerialInterface();
+
 	return true;
 }
 /*
@@ -68,6 +70,8 @@ bool Game::init(const char * title, int xpos, int ypos, int width, int height, i
 	isRunning = true;
 	cout << "SDL init success \n";
 
+	initSerialConnection();
+
 	playerPosition.x = 100;
 	playerPosition.y = 100;
 	playerPosition.w = 25;
@@ -97,7 +101,11 @@ void Game::render()
 */
 void Game::update()
 {
-	
+	if (serial->connect == true) {
+
+		serial->getPositions();
+		playerPosition.y = serial->getPot1();
+	}
 }
 
 /*

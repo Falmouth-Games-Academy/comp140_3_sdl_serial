@@ -1,7 +1,7 @@
 #pragma once
 #include "SDL.h"
 #include <serial\serial.h>
-
+#include "SerialInterface.h"
 
 class Game
 {
@@ -21,7 +21,7 @@ public:
 private:
 	SDL_Window* mainWindow;
 	SDL_Renderer* mainRenderer;
-
+	SerialInterface* serial;
 	bool isRunning;
 
 	SDL_Rect playerPosition;
