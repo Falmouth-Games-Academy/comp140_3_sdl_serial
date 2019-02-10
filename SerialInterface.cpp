@@ -1,5 +1,4 @@
 #include "stdafx.h"
-
 #include "SerialInterface.h"
 #include <iostream>
 
@@ -70,12 +69,13 @@ void SerialInterface::getPositions()
 
 		std::string result = mySerial->readline();
 
-		std::string sub1 = result.substr(0, 4);
-		pot1 = std::stoi(sub1);
+		if (result.length > 5) {
+			std::string sub1 = result.substr(0, 4);
+			pot1 = std::stoi(sub1);
 
-
-		std::string sub2 = result.substr(5, 9);
-		pot2 = std::stoi(sub2);
+			std::string sub2 = result.substr(5, 9);
+			pot2 = std::stoi(sub2);
+		}
 
 	}
 }

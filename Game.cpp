@@ -22,6 +22,7 @@ Game::~Game()
 
 bool Game::initSerialConnection()
 {
+	serial = new SerialInterface();
 	return true;
 }
 /*
